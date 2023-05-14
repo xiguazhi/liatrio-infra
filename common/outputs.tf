@@ -4,10 +4,10 @@ output "client_certificate" {
 }
 
 output "kube_config" {
-  value = azurerm_kubernetes_cluster.liatrio.kube_config_raw
+  value     = azurerm_kubernetes_cluster.liatrio.kube_config_raw
   sensitive = true
 }
 
-output  "liatrio_ip" {
-  value = azurerm_public_ip.liatrio
+output "liatrio_ip" {
+  value = data.azurerm_public_ip.liatrio
 }
