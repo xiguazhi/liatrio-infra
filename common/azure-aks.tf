@@ -2,7 +2,7 @@ resource "azurerm_kubernetes_cluster" "liatrio" {
   name                = format("%s-k8s", var.resource_prefix)
   location            = azurerm_resource_group.liatrio.location
   resource_group_name = azurerm_resource_group.liatrio.name
-  dns_prefix = "k8sdemo"
+  dns_prefix          = "k8sdemo"
   default_node_pool {
     name       = "default"
     node_count = 1
@@ -29,7 +29,7 @@ resource "azurerm_kubernetes_cluster_node_pool" "liatrio" {
   vm_size               = "Standard_DS2_v2"
   vnet_subnet_id        = azurerm_subnet.sub["k8s-cluster"].id
   node_count            = 1
-  
+
   tags = {
     Environment = var.environment
     application = "liatrio-demo"
