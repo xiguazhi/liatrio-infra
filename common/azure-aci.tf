@@ -7,6 +7,6 @@ resource "azurerm_container_registry" "acr" {
 
   encryption {
     enabled = true
-    key_vault_key_id = data.azurerm_key_vault_key.liatrio.id
+    key_vault_key_id = azurerm_key_vault.liatrio.id
   }
 }
