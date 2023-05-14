@@ -1,4 +1,6 @@
 variable "resource_prefix" {}
+variable "rgrp_name" {}
+variable "kv_name" {}
 variable "subnets" {
   default = [
     {
