@@ -14,10 +14,6 @@ resource "azurerm_kubernetes_cluster" "liatrio" {
     load_balancer_sku = "standard"
   }
 
-aci_connector_linux {
-  subnet_name = azurerm_subnet.sub["aci-vnet"].id
-}
-
   identity {
     type = "SystemAssigned"
   }
