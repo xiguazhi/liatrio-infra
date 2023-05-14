@@ -13,12 +13,12 @@ resource "azurerm_virtual_network" "vnet" {
 }
 
 resource "azurerm_subnet" "sub" {
-  for_each          = local.subnets
-  name              = format("%s-%s-sub", var.resource_prefix, each.value.name)
-  resource_group_name = azurerm_resource_group.liatrio.name
+  for_each             = local.subnets
+  name                 = format("%s-%s-sub", var.resource_prefix, each.value.name)
+  resource_group_name  = azurerm_resource_group.liatrio.name
   virtual_network_name = azurerm_virtual_network.vnet.name
-  address_prefixes  = [each.value.prefix]
-  service_endpoints = each.value.services
+  address_prefixes     = [each.value.prefix]
+  service_endpoints    = each.value.services
   dynamic "delegation" {
     for_each = each.value.service_delegation == "true" ? [1] : []
     content {
