@@ -3,7 +3,6 @@
     pull_request:
 
   env:
-    TF_WORKSPACE: ./
     ARM_CLIENT_ID:
     ARM_CLIENT_SECRET:
     ARM_TENANT_ID:
@@ -13,6 +12,12 @@
     terraform:
       name: "Terraform Plan"
       run-on: ubuntu-latest
+      environment:
+        name: dev
+      defaults:
+        run:
+          shell: /bin/bash
+          working-directory: ./dev
       permissions:
         contents: read
         pull-requests: write
