@@ -2,15 +2,15 @@ variable "resource_prefix" {}
 variable "subnets" {
   default = [
     {
-      name = "k8s-cluster"
-      prefix = "10.1.10.0/24"
-      services = [ "Microsoft.Storage", "Microsoft.KeyVault", "Microsoft.EventHub", "Microsoft.ContainerRegistry"]
+      name = "PLACEHOLDER1"
+      prefix = "10.0.0.0/24"
+      services = []
       service_delegaation = false
     },
     {
-      name = "aci-vnet"
+      name = "PLACEHOLDER2"
       prefix = "10.2.10.0/24"
-      services = ["Microsoft.Sql", "Microsoft.Storage", "Microsoft.KeyVault", "Microsoft.EventHub", "Microsoft.ContainerRegistry"]
+      services = []
       service_delegaation = true
 
     }
