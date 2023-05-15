@@ -14,7 +14,7 @@
         name: dev
       defaults:
         run:
-          shell: /bin/bash
+          shell: bash
           working-directory: ./dev
       permissions:
         contents: read
