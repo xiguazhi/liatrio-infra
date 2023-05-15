@@ -37,6 +37,3 @@
           id: plan
           run: terraform plan -no-color
           
-
-
-
