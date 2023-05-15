@@ -12,7 +12,7 @@
 
   jobs:
     terraform:
-      name: "Terraform Plan"
+      name: "Terraform Apply"
       runs-on: ubuntu-latest
       environment:
         name: dev
@@ -38,5 +38,5 @@
 
         - name: Terraform apply
           id: plan
-          run: terraform apply -no-color
+          run: terraform apply -no-color -auto-approve
           
