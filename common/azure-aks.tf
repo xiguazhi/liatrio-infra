@@ -49,7 +49,7 @@ resource "azurerm_role_assignment" "liatrio-network" {
   principal_id         = azurerm_kubernetes_cluster.liatrio.identity.0.principal_id
 }
 
-data "azurerm_public_ip" "liatrio" {
-  name                = reverse(split("/", tolist(azurerm_kubernetes_cluster.liatrio.network_profile.0.load_balancer_profile.0.effective_outbound_ips)[0]))[0]
-  resource_group_name = azurerm_resource_group.liatrio.name
-}
+# data "azurerm_public_ip" "liatrio" {
+#   name                = reverse(split("/", tolist(azurerm_kubernetes_cluster.liatrio.network_profile.0.load_balancer_profile.0.effective_outbound_ips)[0]))[0]
+#   resource_group_name = azurerm_resource_group.liatrio.name
+# }
