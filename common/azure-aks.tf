@@ -4,6 +4,7 @@ resource "azurerm_kubernetes_cluster" "liatrio" {
   resource_group_name = azurerm_resource_group.liatrio.name
   vnet_subnet_id        = azurerm_subnet.sub["k8s-cluster"].id
   dns_prefix          = "k8sdemo"
+  
   default_node_pool {
     name       = "default"
     node_count = 1
