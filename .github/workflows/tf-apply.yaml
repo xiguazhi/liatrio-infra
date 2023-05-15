@@ -1,0 +1,38 @@
+  name: Build Infrastructure with terraform
+  on:
+    pull_request:
+  env:
+    ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
+    ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+    ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
+    ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+  jobs:
+    terraform:
+      name: "Terraform Plan"
+      runs-on: ubuntu-latest
+      environment:
+        name: dev
+      defaults:
+        run:
+          shell: bash
+          working-directory: ./dev
+      permissions:
+        contents: read
+        pull-requests: write
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v3
+        
+        - name: Setup terraform
+          uses:  hashicorp/setup-terraform@v2
+          with:
+            terraform_wrapper: false
+
+        - name: Terraform init
+          id: init
+          run: terraform init
+
+        - name: Terraform apply
+          id: plan
+          run: terraform plan -no-color
+          
