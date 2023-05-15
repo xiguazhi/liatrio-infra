@@ -9,7 +9,7 @@
   jobs:
     terraform:
       name: "Terraform Plan"
-      run-on: ubuntu-latest
+      runs-on: ubuntu-latest
       environment:
         name: dev
       defaults:
@@ -25,7 +25,8 @@
         
         - name: Setup terraform
           uses:  hashicorp/setup-terraform@v2
-          wrapper: false
+          with:
+            terraform_wrapper: false
 
         - name: Terraform init
           id: init
