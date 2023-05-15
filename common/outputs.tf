@@ -9,5 +9,5 @@ output "kube_config" {
 }
 
 output "liatrio_ip" {
-  value = data.azurerm_public_ip.liatrio
+  value = data.azurerm_public_ip.liatrio.ip_address
 }
