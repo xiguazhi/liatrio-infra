@@ -8,6 +8,3 @@ output "kube_config" {
   sensitive = true
 }
 
-output "liatrio_ip" {
-  value = module.liatrio-demo.liatrio_ip
-}
