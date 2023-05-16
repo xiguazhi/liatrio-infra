@@ -14,7 +14,7 @@ provider "azurerm" {
 data "azurerm_client_config" "current" {}
 
 
-resource "azure_key_vault" "liatrio" {
+resource "azurerm_key_vault" "liatrio" {
   name                        = format("%s-%s-KV", var.resource_prefix, var.key_vault_name)
   location                    = azurerm_resource_group.liatrio.location
   resource_group_name         = azurerm_resource_group.liatrio.name
@@ -59,7 +59,7 @@ resource "azurerm_key_vault_access_policy" "k8s-policy" {
 }
 
 
-resource "azurerm_Key_vault_secret" "k8s" {
+resource "azurerm_key_vault_secret" "k8s" {
   name         = "K8s-Private-Key"
   value        = tls_private_key.liatrio.private_key_pem
   key_vault_id = azurerm_key_vault.liatrio.id
