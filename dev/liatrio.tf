@@ -4,6 +4,9 @@ terraform {
       source  = "hashicorp/azurerm"
       version = "= 3.56"
     }
+    tls = {
+      source = "hashicorp/tls"
+    }
   }
   backend "azurerm" {
     resource_group_name  = "bsore-wy-hub-rgrp"

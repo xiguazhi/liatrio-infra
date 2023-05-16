@@ -11,7 +11,12 @@ resource "azurerm_kubernetes_cluster" "liatrio" {
     vm_size        = "Standard_D2_v2"
     vnet_subnet_id = azurerm_subnet.sub["k8s-cluster"].id
   }
-
+  linux_profile {
+    admin_username = "demo-user"
+    ssh_key {
+      key_data = tls_private_key.liatrio.public_key_pem
+    }
+  }
   network_profile {
     network_plugin    = "kubenet"
     load_balancer_sku = "standard"
