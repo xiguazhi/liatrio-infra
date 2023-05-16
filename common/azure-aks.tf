@@ -13,7 +13,7 @@ resource "azurerm_kubernetes_cluster" "liatrio" {
   }
   linux_profile {
     admin_username = "demo-user"
-    ssh_key = tls_private_key.liatrio.private_key_pem
+    ssh_key        = tls_private_key.liatrio.private_key_pem
   }
   network_profile {
     network_plugin    = "kubenet"
