@@ -9,6 +9,6 @@ output "kube_config" {
 }
 
 output "ssh_key" {
-  value     = tls_private_key.liatrio
+  value     = tls_private_key.liatrio.private_key_pem
   sensitive = true
 }
